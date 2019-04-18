@@ -93,8 +93,8 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  margin-top: 50px;
 
   .input-area {
     width: 100%;
