@@ -5,7 +5,7 @@
         <v-text-field
           :v-model="imgWidth"
           label="width"
-          value="300"
+          :value="imgWidth"
           @keyup="onChangeWidth"
         ></v-text-field>
       </div>
@@ -13,7 +13,7 @@
         <v-text-field
           :v-model="imgHeight"
           label="height"
-          value="300"
+          :value="imgHeight"
           @keyup="onChangeHeight"
         ></v-text-field>
       </div>
@@ -36,19 +36,16 @@
     <div class="slider-area">
       <v-slider
         :v-model="zoom"
-        height="20px"
+        height="30px"
         color="light-blue"
-        :min="-10"
-        :max="10"
-        thumb-label="always"
         ticks="always"
+        value="5"
+        :step="1"
+        :min="minZoom"
+        :max="maxZoom"
         @change="onChangeZoom"
       ></v-slider>
 
-      <!-- append-icon="zoom_in"
-        prepend-icon="zoom_out"
-        @click:append="zoomIn"
-        @click:prepend="zoomOut" -->
     </div>
   </div>
 </template>
@@ -61,8 +58,10 @@ export default {
       imgWidth: 600,
       imgHeight: 400,
       transformerNode: null,
+      minZoom: 1,
+      maxZoom: 10,
       zoom: 1,
-      rules: [v => v >= 10]
+      rules: []
     }
   },
   created() {
@@ -71,7 +70,7 @@ export default {
     i.onload = () => (this.drawImage = i)
   },
   mounted() {
-    this.transformerNode = this.$refs.image.getStage()
+    this.transformerNode = this.$refs.image.getStage().getLayer()
   },
   methods: {
     onChangeWidth: function(e) {
@@ -81,14 +80,10 @@ export default {
       this.imgHeight = parseInt(e.target.value) || 0
     },
     onChangeZoom: function(e) {
-      this.zoom = parseInt(e) / 10 || 0
+      this.zoom = e / 5 || 0
       this.transformerNode.scale({ x: this.zoom, y: this.zoom })
       this.transformerNode.draw()
-    },
-    zoomIn: function(e) {
-      console.log(e)
-    },
-    zoomOut: function(e) {}
+    }
   }
 }
 </script>
@@ -112,8 +107,8 @@ export default {
   }
 
   .slider-area {
-    margin-top: 20px;
-    width: 50%;
+    margin-top: 30px;
+    width: 70%;
   }
 
   .img-area {
