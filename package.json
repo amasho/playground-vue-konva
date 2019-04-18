@@ -1,0 +1,25 @@
+{
+  "name": "playground-vue-konva",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "ssh://git@github.com/amasho/playground-vue-konva.git",
+  "author": "Shota Amano <amasho@dev-cycle.io>",
+  "license": "MIT",
+  "scripts": {
+    "serve": "vue-cli-service serve --port 3000 --open",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@vue/cli-service": "^3.6.0",
+    "konva": "^3.2.5",
+    "prettier": "^1.17.0",
+    "sass": "^1.18.0",
+    "sass-loader": "^7.1.0",
+    "vue": "^2.6.10",
+    "vue-konva": "^2.0.4",
+    "vue-loader": "^15.7.0",
+    "vue-router": "^3.0.5",
+    "vue-template-compiler": "^2.6.10",
+    "vuetify": "^1.5.12"
+  }
+}
