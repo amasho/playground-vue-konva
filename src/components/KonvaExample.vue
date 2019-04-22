@@ -85,11 +85,6 @@
         @change="onChangeZoom"
       ></v-slider>
     </div>
-
-    <v-btn
-      color="info"
-      @click="clickDownload"
-    >保存</v-btn>
   </div>
 </template>
 
@@ -142,14 +137,6 @@ export default {
       this.zoom = e / 5 || 0
       this.transformerNode.scale({ x: this.zoom, y: this.zoom })
       this.transformerNode.draw()
-    },
-    clickDownload: function() {
-      let canvas = document.getElementById('canvas')
-
-      let link = document.createElement('a')
-      link.href = canvas.toDataURL('image/png')
-      link.download = 'test.png'
-      link.click()
     }
   }
 }
