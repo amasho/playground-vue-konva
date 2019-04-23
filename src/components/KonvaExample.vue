@@ -108,7 +108,8 @@ export default {
   },
   created() {
     const i = new Image()
-    i.src = 'https://i.ytimg.com/vi/etUTQKP8a5I/maxresdefault.jpg'
+    i.src =
+      'https://4.bp.blogspot.com/-4i1B0o4yd5o/V_4cCmhWs3I/AAAAAAAA-xA/0WGh9f6DUpwxLlt-oP0yFCoxSrprIvwxACLcB/s800/benjomeshi_boy.png'
     i.onload = () => (this.drawImage = i)
   },
   mounted() {
